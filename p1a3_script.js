@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
-// @namespace    http://tampermonkey.net/
-// @version      0.2
+// @namespace    https://github.com/eagleoflqj/p1a3_script
+// @version      0.2.1
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -34,16 +34,17 @@
                 return;
             }
         }
+        let expire={expires:365}; //cookie有效期
         search_button.click(()=>{ //如果不全是默认值，记下当前选项
             for(let id of search_ids){
                 if(jq('#'+id).val()!='0'){
-                    jq.cookie('searchoption',1);
+                    jq.cookie('searchoption',1,expire);
                     break;
                 }
             }
             if(jq.cookie('searchoption')){
                 for(let id of search_ids){
-                    jq.cookie(id,jq('#'+id).val());
+                    jq.cookie(id,jq('#'+id).val(),expire);
                 }
             }
         });
