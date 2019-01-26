@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.2.1
+// @version      0.3
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -14,6 +14,23 @@
     'use strict';
 
     let jq=jQuery.noConflict();
+    //针对全站的自动签到
+    let sign=jq('.wp a:contains("签到领奖")')[0]
+    sign&&sign.onclick(); //点击签到领奖
+    setTimeout(()=>{
+        let qiandao=jq('#qiandao');
+        if(!qiandao.length){
+            return;
+        }
+        let faces=qiandao.find('.qdsmilea>li'); //所有表情
+        let selected_face=faces[Math.floor(Math.random()*faces.length)]; //随机选择表情
+        selected_face.onclick();
+        let todaysay=qiandao.find('#todaysay'); //文字框
+        todaysay.val('今天把论坛帖子介绍给好基友了~'); //快速签到的第一句
+        let button=qiandao.find('button')[0];
+        button.onclick();
+    },1000); //保证签到对话框加载
+    //针对不同页面的操作
     let url=window.location.href;
     if(url.search('viewthread')>0){ //详情页
         //自动查看学校、三维
