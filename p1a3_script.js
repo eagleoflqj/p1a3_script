@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.3
+// @version      0.4.0
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -30,6 +30,36 @@
         let button=qiandao.find('button')[0];
         button.onclick();
     },1000); //保证签到对话框加载
+    //针对全站的自动答题
+    if(!jq.cookie('answered')){ //今天尚未（尝试）答题
+        //题库
+        let QA={'【题目】 下面哪个情况，不会消耗你的积分？':'看到干货帖子和精华回复，给作者加分！'};
+        let dayquestion=jq('#um img[src*=ahome_dayquestion]').parent()[0];
+        if(!dayquestion||!dayquestion.onclick){ //cookie未设置但已答题
+            return;
+        }
+        dayquestion.onclick(); //点击答题
+        setTimeout(()=>{
+            let fwin_pop=jq('#fwin_pop form');
+            let question=fwin_pop.find('font:contains(【题目】)').text();
+            let answer=QA[question];
+            if(!answer){ //题库不含此题
+                console.log('尚未收录此题答案。如果您知道答案，请将\n"\n'+question+'\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues');
+            }else{ //自动回答
+                let option=fwin_pop.find('.qs_option:contains('+answer+')')[0];
+                option.onclick();
+                let button=fwin_pop.find('button')[0];
+                button.click(); //提交答案
+                console.log(question+'\n答案为：'+answer);
+            }
+            let tomorrow=new Date(); //无论是否成功答题，今日不再尝试
+            tomorrow.setDate(tomorrow.getDate()+1);
+            tomorrow.setHours(0);
+            tomorrow.setMinutes(0);
+            tomorrow.setSeconds(0);
+            jq.cookie('answered',1,{expires:tomorrow});
+        },1000); //保证答题对话框加载
+    }
     //针对不同页面的操作
     let url=window.location.href;
     if(url.search('viewthread')>0){ //详情页
