@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.1
+// @version      0.4.2
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -32,8 +32,10 @@
     }, 1000); //保证签到对话框加载
     //针对全站的自动答题
     if (!jq.cookie('answered')) { //今天尚未（尝试）答题
-        //题库
-        let QA = { '【题目】 下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！' };
+        let QA = {
+            '【题目】 下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！',
+            '【题目】 哪种选校策略最合理？': '根据自己下一步职业和学业目标，参考地里数据和成功率，认真斟酌',
+        }; //题库
         let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
         dayquestion && dayquestion.onclick && (dayquestion.onclick() || setTimeout(() => {
             let fwin_pop = jq('#fwin_pop form');
