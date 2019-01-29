@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.3
+// @version      0.4.4
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -23,7 +23,7 @@
     //针对不同页面的操作
     let url = window.location.href;
     if (url === 'https://www.1point3acres.com/bbs/' || url.search('forum.php') > 0) { //可签到、答题的页面
-        //自动签到
+        //自动签到、答题
         if (!jq.cookie('signed')) {
             jq.cookie('signed', 1, tomorrow); //无论是否成功签到，今日不再尝试
             let sign = jq('.wp a:contains("签到领奖")')[0];
@@ -40,14 +40,13 @@
                 let button = qiandao.find('button')[0];
                 button.onclick();
             }, 1000)); //保证签到对话框加载
-        }
-        //自动答题
-        if (jq.cookie('signed') && !jq.cookie('answered')) { //今天已（尝试）签到，尚未（尝试）答题
+        } else if (!jq.cookie('answered')) { //今天已（尝试）签到，尚未（尝试）答题
             jq.cookie('answered', 1, tomorrow); //无论是否成功答题，今日不再尝试
             let QA = {
                 '【题目】 下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！',
                 '【题目】 哪种选校策略最合理？': '根据自己下一步职业和学业目标，参考地里数据和成功率，认真斟酌',
                 '【题目】 论坛鼓励如何发面经？': '以上都正确',
+                '【题目】 下面哪个专业，不是STEM，OPT没法延期？': '教育学',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
