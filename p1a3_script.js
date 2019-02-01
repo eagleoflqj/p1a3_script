@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.5
+// @version      0.4.6
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -48,6 +48,7 @@
                 '【题目】 论坛鼓励如何发面经？': '以上都正确',
                 '【题目】 下面哪个专业，不是STEM，OPT没法延期？': '教育学',
                 '【题目】 Negotiate 工资的时候，哪种做法有利于得到更大的包裹？': '精读地里谈工资宝典，知己知彼，百战不殆',
+                '【题目】 想找室友或者当房东，帖子发在哪里？': '租房广告|找室友版',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
