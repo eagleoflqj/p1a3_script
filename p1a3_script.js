@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.7
+// @version      0.4.8
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -50,6 +50,7 @@
                 '【题目】 Negotiate 工资的时候，哪种做法有利于得到更大的包裹？': '精读地里谈工资宝典，知己知彼，百战不殆',
                 '【题目】 想找室友或者当房东，帖子发在哪里？': '租房广告|找室友版',
                 '【题目】 下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
+                '【题目】 在Linkedin上求内推如何作死': '这些都会作死',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
