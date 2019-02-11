@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.9
+// @version      0.4.10
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -52,6 +52,7 @@
                 '【题目】 下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
                 '【题目】 在Linkedin上求内推如何作死': '这些都会作死',
                 '【题目】 在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
+                '【题目】 下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
@@ -70,9 +71,9 @@
             }, 1000)); //保证答题对话框加载
         }
     }
-    if (url.search('viewthread') > 0) { //详情页
+    if (url.search('thread') > 0) { //详情页
         //自动查看学校、三维
-        let elements = jq('a:contains(点击查看)');
+        let elements = jq('.typeoption a:contains(点击查看)');
         for (let element of elements) {
             element.onclick();
         }

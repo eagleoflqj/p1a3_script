@@ -2,7 +2,7 @@
 一亩三分地的油猴脚本
 # 安装
 ## 自动（推荐）
-点击油猴图标->管理面板，页面中点击实用工具，在URL文本框输入源码地址https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/p1a3_script.js，点击导入
+点击油猴图标->管理面板，页面中点击实用工具，在URL文本框输入源码[地址](https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/p1a3_script.js)，点击导入
 ## 手动（不推荐）
 点击油猴图标->添加新脚本，粘贴p1a3_script.js的源码，Ctrl+S
 # 更新
@@ -25,5 +25,5 @@
 ### 重置筛选条件
 ## Doing
 ### 自动答题
-题库维护中，目前共有9题  
+题库维护中，目前共有10题  
 成功答题或题目不在题库，console会有提示
