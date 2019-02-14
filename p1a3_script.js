@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.10
+// @version      0.4.11
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -53,6 +53,7 @@
                 '【题目】 在Linkedin上求内推如何作死': '这些都会作死',
                 '【题目】 在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
                 '【题目】 下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
+                '【题目】 地里数据科学类职位面经放在在什么版最合理？': '数科面经版',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
