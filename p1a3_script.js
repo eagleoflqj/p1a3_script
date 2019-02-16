@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.12
+// @version      0.4.13
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -55,6 +55,7 @@
                 '【题目】 下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
                 '【题目】 地里数据科学类职位面经放在在什么版最合理？': '数科面经版',
                 '【题目】 地里发帖可以隐藏内容。假如要设置200积分以上才可以看到，下面哪个语法正确？': '[hide=200]想要隐藏的内容[/hide]',
+                '【题目】 求内推如何作死？': '这些都会作死',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
