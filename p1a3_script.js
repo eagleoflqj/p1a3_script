@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.14
+// @version      0.4.15
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -57,6 +57,7 @@
                 '【题目】 地里发帖可以隐藏内容。假如要设置200积分以上才可以看到，下面哪个语法正确？': '[hide=200]想要隐藏的内容[/hide]',
                 '【题目】 求内推如何作死？': '这些都会作死',
                 '【题目】 公司之间级别对应，如下哪个是错误的？': 'Facebook L6 = Facebook E6',
+                '【题目】 地里面经数目最多的是哪家公司？': 'Amazon',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
