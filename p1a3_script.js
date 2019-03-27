@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.16
+// @version      0.4.17
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -59,6 +59,7 @@
                 '【题目】 公司之间级别对应，如下哪个是错误的？': 'Facebook L6 = Facebook E6',
                 '【题目】 地里面经数目最多的是哪家公司？': 'Amazon',
                 '【题目】 回答别人的私信提问还需要消耗我5大米怎么办？': '直接在版面回答，这样大家都能看见',
+                '【题目】 给论坛ios或者安卓手机应用留评价如何获取50大米？': '以上步骤都需要',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
