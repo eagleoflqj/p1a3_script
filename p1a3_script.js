@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.19
+// @version      0.4.20
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -62,6 +62,7 @@
                 '【题目】 给论坛ios或者安卓手机应用留评价如何获取50大米？': '以上步骤都需要',
                 '【题目】 下面哪类版块，可以拉群，而且不会被警告扣分？': '学友工友、找室友或者版聚本地',
                 '【题目】 一亩三分地是哪年创立的？': '2009',
+                '【题目】 一亩三分地发帖可以用hide语法隐藏内容。下面哪个写法正确？': '柯南的名字是[hide=200]工藤新一[/hide]',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
