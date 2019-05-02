@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.22
+// @version      0.4.23
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -65,6 +65,7 @@
                 '【题目】 一亩三分地发帖可以用hide语法隐藏内容。下面哪个写法正确？': '柯南的名字是[hide=200]工藤新一[/hide]',
                 '【题目】 一亩三分地是谁创立的？': 'Warald',
                 '【题目】 加州大学有多个分校，下面哪个成立时间最短？': 'UC Merced',
+                '【题目】 下面哪个州，没有state income tax?': 'Florida',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
