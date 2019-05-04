@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.23
+// @version      0.4.25
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -67,6 +67,7 @@
                 '【题目】 加州大学有多个分校，下面哪个成立时间最短？': 'UC Merced',
                 '【题目】 下面哪个州，没有state income tax?': 'Florida',
                 '【题目】 下面哪个州里有Disney World？': 'Florida',
+                '【题目】 关于旧金山市中心描述，下面哪个不正确？': '旧金山创业公司很多，被称为“硅谷”',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
