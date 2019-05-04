@@ -66,6 +66,7 @@
                 '【题目】 一亩三分地是谁创立的？': 'Warald',
                 '【题目】 加州大学有多个分校，下面哪个成立时间最短？': 'UC Merced',
                 '【题目】 下面哪个州，没有state income tax?': 'Florida',
+                '【题目】 下面哪个州里有Disney World？': 'Florida',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
