@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.4.27
+// @version      0.4.28
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -70,6 +70,7 @@
                 '【题目】 关于旧金山市中心描述，下面哪个不正确？': '旧金山创业公司很多，被称为“硅谷”',
                 '【题目】 下面几个州，哪个离美国首都最远？': 'North Carolina',
                 '【题目】 Which company is the largest single-site employer in the US?': 'Disney World',
+                '【题目】 下面哪个州，有state income tax': 'Mississippi',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
