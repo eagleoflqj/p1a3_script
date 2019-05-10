@@ -66,7 +66,7 @@
                 '【题目】 一亩三分地是谁创立的？': 'Warald',
                 '【题目】 加州大学有多个分校，下面哪个成立时间最短？': 'UC Merced',
                 '【题目】 下面哪个州，没有state income tax?': 'Florida',
-                '【题目】 下面哪个州里有Disney World？': 'Florida',
+                '【题目】 下面哪个州里有Disney World？': 'Florida',
                 '【题目】 关于旧金山市中心描述，下面哪个不正确？': '旧金山创业公司很多，被称为“硅谷”',
                 '【题目】 下面几个州，哪个离美国首都最远？': 'North Carolina',
                 '【题目】 Which company is the largest single-site employer in the US?': 'Disney World',
