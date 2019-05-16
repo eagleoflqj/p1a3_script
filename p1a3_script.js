@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.0
+// @version      0.5.1
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -70,6 +70,7 @@
                 '下面哪个州里有Disney World？': 'Florida',
                 '下面哪个专业，不是STEM，OPT没法延期？': '教育学',
                 '下面哪类版块，可以拉群，而且不会被警告扣分？': '学友工友、找室友或者版聚本地',
+                '下面哪所大学所在城市不是波士顿？': 'MIT',
                 '想找室友或者当房东，帖子发在哪里？': '租房广告|找室友版',
                 '一亩三分地发帖可以用hide语法隐藏内容。下面哪个写法正确？': '柯南的名字是[hide=200]工藤新一[/hide]',
                 '一亩三分地是哪年创立的？': '2009',
