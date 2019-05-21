@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.2
+// @version      0.5.3
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -65,6 +65,7 @@
                     '中国驻纽约领事馆位于法拉盛中国城，周围全是好吃的！'
                 ],
                 '下面哪个学术会议不是机器学习领域的？': 'ICSE',
+                '下面哪个州，对公司友好，所以吸引了美国很多公司注册？': '特拉华',
                 '下面哪个州，没有income tax?': 'Nevada',
                 '下面哪个州，没有state income tax?': 'Florida',
                 '下面哪个州，有state income tax': 'Mississippi',
