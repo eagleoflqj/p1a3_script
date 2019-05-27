@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.6
+// @version      0.5.7
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -60,6 +60,7 @@
                 '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
                 '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
                 '下面哪个城市没有SUNY（纽约州立大学）校区？': 'Fulton',
+                '下面哪个大学实际上不存在？': 'University of Michigan, Twin City',
                 '下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！',
                 '下面哪个说法错误？': [
                     '芝加哥是美国著名的雨城',
