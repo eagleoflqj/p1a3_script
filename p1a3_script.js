@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.11
+// @version      0.5.12
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -84,6 +84,7 @@
                     'Boston College',
                     'MIT',
                 ],
+                '下面哪种行为，在地里会被扣光积分，甚至封号？': '这些全都会',
                 '想找室友或者当房东，帖子发在哪里？': '租房广告|找室友版',
                 '一亩三分地发帖可以用hide语法隐藏内容。下面哪个写法正确？': '柯南的名字是[hide=200]工藤新一[/hide]',
                 '一亩三分地鼓励如何发面经？': '以上都正确',
@@ -91,7 +92,6 @@
                 '一亩三分地是谁创立的？': 'Warald',
                 '在Linkedin上求内推如何作死': '这些都会作死',
                 '在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
-                '下面哪种行为，在地里会被扣光积分，甚至封号？': '这些全都会',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
