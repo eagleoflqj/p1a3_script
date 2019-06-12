@@ -91,6 +91,7 @@
                 '一亩三分地是谁创立的？': 'Warald',
                 '在Linkedin上求内推如何作死': '这些都会作死',
                 '在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
+                '下面哪种行为，在地里会被扣光积分，甚至封号？': '这些全都会',
             }; //题库
             let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
             dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || setTimeout(() => {
