@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.15
+// @version      0.5.16
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -78,11 +78,12 @@
                     'Mississippi',
                     'North Dakota',
                 ],
+                '下面哪个州冬天最暖和？': 'Oklahoma',
                 '下面哪个州里有Disney World？': 'Florida',
                 '下面哪个州在美国西海岸': 'Washington',
                 '下面哪个专业，不是STEM，OPT没法延期？': '教育学',
-                '下面哪家公司的总部不在西雅图': '波音',
                 '下面哪个公司总部在圣地亚哥？': 'Qualcomm',
+                '下面哪家公司的总部不在西雅图': '波音',
                 '下面哪类版块，可以拉群，而且不会被警告扣分？': '学友工友、找室友或者版聚本地',
                 '下面哪所大学所在城市不是波士顿？': [
                     'Boston College',
