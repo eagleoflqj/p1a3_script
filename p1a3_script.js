@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.14
+// @version      0.5.15
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
 // @grant        none
-// @require      https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
+// @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @require      https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js
 // ==/UserScript==
 
@@ -108,23 +108,25 @@
                     return;
                 }
                 //自动回答
-                let option = undefined;
-                if (typeof answer == 'string') {
-                    option = fwin_pop.find('.qs_option:contains(' + answer + ')')[0];
-                } else {
-                    let answer_list = answer;
+                let option_list = [];
+                let answer_list = typeof answer === 'string' ? [answer] : answer;
+                // 答案和选项取交集
+                for (let option of fwin_pop.find('.qs_option')) {
                     for (answer of answer_list) {
-                        option = fwin_pop.find('.qs_option:contains(' + answer + ')')[0];
-                        if (option) {
-                            break;
+                        if (option.textContent.trim() === answer) {
+                            option_list.push(option);
                         }
                     }
                 }
-                if (!option) {
-                    console.log(prompt)
+                if (!option_list.length) {
+                    console.log(prompt);
                     return;
                 }
-                option.onclick();
+                if (option_list.length > 1) {
+                    alert('[Warning] 多个选项与题库答案匹配');
+                    return;
+                }
+                option_list[0].onclick();
                 let button = fwin_pop.find('button')[0];
                 button.click(); //提交答案
                 console.log(question + '\n答案为：' + answer);
