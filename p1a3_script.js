@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.5.17
+// @version      0.6.0
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -125,13 +125,10 @@
                 let option_list = [];
                 let answer_list = typeof answer === 'string' ? [answer] : answer;
                 // 答案和选项取交集
-                for (let option of fwin_pop.find('.qs_option')) {
-                    for (answer of answer_list) {
-                        if (option.textContent.trim() === answer) {
-                            option_list.push(option);
-                        }
-                    }
-                }
+                fwin_pop.find('.qs_option').toArray()
+                    .forEach(option => answer_list
+                        .filter(answer => option.textContent.trim() === answer)
+                        .forEach(() => option_list.push(option)));
                 if (!option_list.length) {
                     console.log(prompt);
                     return;
@@ -150,17 +147,13 @@
     if (url.search('thread') > 0) { //详情页
         //自动查看学校、三维
         let elements = jq('.typeoption a:contains(点击查看)');
-        for (let element of elements) {
-            element.onclick();
-        }
+        elements.toArray().forEach(element => element.onclick());
     } else if (url.search('forum-82-1') > 0 || url.search('forum.php\\?mod=forumdisplay&fid=82') > 0) { //结果汇报列表页
         //按上次的筛选条件过滤录取结果
         let search_ids = ['planyr', 'planterm', 'planmajor', 'plandegree', 'planfin', 'result', 'country']; //过滤下拉菜单id
         let search_button = jq('#searhsort > div.ptm.cl > button'); //搜索按钮
         if (jq.cookie('searchoption')) { //上次过滤了
-            for (let id of search_ids) {
-                jq('#' + id).val(jq.cookie(id)); //自动填充下拉菜单
-            }
+            search_ids.forEach(id => jq('#' + id).val(jq.cookie(id)));//自动填充下拉菜单
             if (url.search('filter') < 0) { //当前页面没有过滤
                 search_button.click(); //自动过滤
                 return;
@@ -168,26 +161,19 @@
         }
         let expire = { expires: 365 }; //cookie有效期
         search_button.click(() => { //如果不全是默认值，记下当前选项
-            for (let id of search_ids) {
-                if (jq('#' + id).val() != '0') {
-                    jq.cookie('searchoption', 1, expire);
-                    break;
-                }
-            }
+            search_ids.some(id => jq('#' + id).val() !== '0') && jq.cookie('searchoption', 1, expire);
             if (jq.cookie('searchoption')) {
-                for (let id of search_ids) {
-                    jq.cookie(id, jq('#' + id).val(), expire);
-                }
+                search_ids.forEach(id => jq.cookie(id, jq('#' + id).val(), expire));
             }
         });
         //添加重置按钮
         let reset_button = jq('<button type="button" class="pn pnc"><em>重置</em></button>');
         reset_button.click(() => { //重置、清cookie
             jq.removeCookie('searchoption');
-            for (let id of search_ids) {
+            search_ids.forEach(id => {
                 jq('#' + id).val('0');
                 jq.removeCookie(id);
-            }
+            });
         });
         search_button.after(reset_button);
         //折叠占空间的提示
