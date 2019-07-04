@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.6.1
+// @version      0.6.2
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -15,12 +15,6 @@
     'use strict';
 
     let jq = jQuery.noConflict();
-    let tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0);
-    tomorrow.setMinutes(0);
-    tomorrow.setSeconds(0);
-    tomorrow = { expires: tomorrow }; //明日0点
     let waitUntilElementLoaded = function (element, retryTimes = 20) { //异步等待元素出现并返回
         return new Promise((resolve, reject) => {
             let check = (ttl) => {
@@ -37,11 +31,10 @@
     //针对不同页面的操作
     let url = window.location.href;
     if (url === 'https://www.1point3acres.com/bbs/' || url.search('forum.php') > 0) { //可签到、答题的页面
-        //自动签到、答题
-        if (!jq.cookie('signed')) {
-            jq.cookie('signed', 1, tomorrow); //无论是否成功签到，今日不再尝试
-            let sign = jq('.wp a:contains("签到领奖")')[0];
-            sign && sign.onclick && (sign.onclick() && 0 || (async () => { //点击签到领奖
+        //自动签到
+        let sign = jq('.wp a:contains("签到领奖")')[0];
+        sign && sign.onclick && (sign.onclick() || 1) &&
+            (async () => { //点击签到领奖
                 let qiandao = await waitUntilElementLoaded('#qiandao');
                 if (!qiandao.length) {
                     return;
@@ -53,11 +46,11 @@
                 todaysay.val('今天把论坛帖子介绍给好基友了~'); //快速签到的第一句
                 let button = qiandao.find('button')[0];
                 button.onclick();
-            })()); //保证签到对话框加载
-        } else if (!jq.cookie('answered')) { //今天已（尝试）签到，尚未（尝试）答题
-            jq.cookie('answered', 1, tomorrow); //无论是否成功答题，今日不再尝试
-            let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
-            dayquestion && dayquestion.onclick && (dayquestion.onclick() && 0 || (async () => {
+            })(); //保证签到对话框加载
+        //签到后自动答题
+        let dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
+        !sign && dayquestion && dayquestion.onclick && (dayquestion.onclick() || 1) &&
+            (async () => {
                 let fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
                 let question = fwin_pop.find('font:contains(【题目】)').text().slice(5);
                 let prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
@@ -86,8 +79,7 @@
                 let button = fwin_pop.find('button')[0];
                 button.click(); //提交答案
                 console.log(question + '\n答案为：' + answer);
-            })()); //保证答题对话框加载
-        }
+            })(); //保证答题对话框加载
     }
     if (url.search('thread') > 0) { //详情页
         //自动查看学校、三维
