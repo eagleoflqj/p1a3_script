@@ -8,7 +8,7 @@
 // @grant        none
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @require      https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js
-// @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/QA.js
+// @require      https://greasyfork.org/scripts/387976-1p3a-qa/code/1p3a_qa.js
 // ==/UserScript==
 
 (function () {
