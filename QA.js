@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      53
+// @version      54
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -24,6 +24,7 @@ QA = {
     '哪种选校策略最合理？': '根据自己下一步职业和学业目标，参考地里数据和成功率，认真斟酌',
     '求内推如何作死？': '这些都会作死',
     '下面几个州，哪个离美国首都最远？': 'North Carolina',
+    '下面加州哪个地点离墨西哥最近？': '圣迭戈',
     '下面哪部作品是喜剧？': '仲夏夜之梦',
     '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
     '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
