@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      54
+// @version      55
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -42,6 +42,7 @@ QA = {
     '下面哪个州，对公司友好，所以吸引了美国很多公司注册？': '特拉华',
     '下面哪个州，没有income tax?': 'Nevada',
     '下面哪个州，没有state income tax?': [
+        'Alaska',
         'Florida',
         'New Hampshire',
     ],
