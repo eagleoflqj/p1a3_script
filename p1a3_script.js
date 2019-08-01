@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.6.3
+// @version      0.6.3.1
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
 // @grant        none
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @require      https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js
-// @require      https://greasyfork.org/scripts/387976-1p3a-qa/code/1p3a_qa.js
+// @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/QA.js
 // ==/UserScript==
 
 (function () {
