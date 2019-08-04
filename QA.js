@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      55
+// @version      56
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -32,6 +32,7 @@ QA = {
     '下面哪个大学不在Virginia/DC附近': 'Washington and Jefferson College',
     '下面哪个大学实际上不存在？': 'University of Michigan, Twin City',
     '下面哪个公司的streaming service不是会员subscription付费模式运营的？': 'Tubi',
+    '下面哪个公司总部在圣地亚哥？': 'Qualcomm',
     '下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！',
     '下面哪个说法错误？': [
         '芝加哥是美国著名的雨城',
@@ -57,7 +58,7 @@ QA = {
     '下面哪个州里有Disney World？': 'Florida',
     '下面哪个州在美国西海岸': 'Washington',
     '下面哪个专业，不是STEM，OPT没法延期？': '教育学',
-    '下面哪个公司总部在圣地亚哥？': 'Qualcomm',
+    '下面哪个作家是英国人？': 'Charles Dickens',
     '下面哪家公司的总部不在西雅图': '波音',
     '下面哪类版块，可以拉群，而且不会被警告扣分？': '学友工友、找室友或者版聚本地',
     '下面哪所大学所在城市不是波士顿？': [
