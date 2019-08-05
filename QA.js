@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      56
+// @version      57
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -28,6 +28,7 @@ QA = {
     '下面哪部作品是喜剧？': '仲夏夜之梦',
     '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
     '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
+    '下面哪个城市不是典型的温带海洋性气候？': '波士顿',
     '下面哪个城市没有SUNY（纽约州立大学）校区？': 'Fulton',
     '下面哪个大学不在Virginia/DC附近': 'Washington and Jefferson College',
     '下面哪个大学实际上不存在？': 'University of Michigan, Twin City',
