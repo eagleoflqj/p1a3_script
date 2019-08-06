@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      57
+// @version      58
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -73,6 +73,7 @@ QA = {
     '一亩三分地是哪年创立的？': '2009',
     '一亩三分地是谁创立的？': 'Warald',
     '以下哪个美国城市不靠海？': '亚特兰大',
+    '以下哪个说法正确？': '一篇一作指的是有一篇第一作者的文章',
     '在Linkedin上求内推如何作死': '这些都会作死',
     '在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
 };
