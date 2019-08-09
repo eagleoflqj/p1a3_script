@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.6.5
+// @version      0.6.6
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -45,7 +45,7 @@
                 const todaysay = qiandao.find('#todaysay'); // 文字框
                 todaysay.val('今天把论坛帖子介绍给好基友了~'); // 快速签到的第一句
                 const button = qiandao.find('button')[0];
-                // button.onclick();
+                button.onclick();
             })(); // 保证签到对话框加载
         // 签到后自动答题
         const dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];

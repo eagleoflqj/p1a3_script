@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      60
+// @version      61
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -27,8 +27,7 @@ QA = {
     '下面几个州，哪个离美国首都最远？': 'North Carolina',
     '下面加州哪个地点离墨西哥最近？': '圣迭戈',
     '下面哪部作品是喜剧？': '仲夏夜之梦',
-    '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
-    '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
+    '下面哪个Ivy League，离东海岸最远？': 'Cornell',
     '下面哪个城市不是典型的温带海洋性气候？': '波士顿',
     '下面哪个城市没有SUNY（纽约州立大学）校区？': 'Fulton',
     '下面哪个大学不在Virginia/DC附近': 'Washington and Jefferson College',
@@ -67,6 +66,8 @@ QA = {
         'Boston College',
         'MIT',
     ],
+    '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
+    '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
     '下面哪种行为，在地里会被扣光积分，甚至封号？': '这些全都会',
     '想找室友或者当房东，帖子发在哪里？': '租房广告|找室友版',
     '一亩三分地发帖可以用hide语法隐藏内容。下面哪个写法正确？': '柯南的名字是[hide=200]工藤新一[/hide]',
