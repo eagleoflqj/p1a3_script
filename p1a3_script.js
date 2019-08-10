@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.6.6
+// @version      0.6.7
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -76,6 +76,7 @@
                     return;
                 }
                 option_list[0].onclick();
+                jq('#seccodeverify_SA00')[0].focus();
                 const button = fwin_pop.find('button')[0];
                 // button.click(); // 提交答案
                 console.log(question + '\n答案为：' + answer);
