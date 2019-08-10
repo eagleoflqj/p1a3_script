@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      61
+// @version      62
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -77,6 +77,7 @@ QA = {
     '以下哪个美国城市不靠海？': '亚特兰大',
     '以下哪个说法正确？': '一篇一作指的是有一篇第一作者的文章',
     '以下哪所学校是美国第一所研究型大学？': '约翰霍普金斯大学',
+    '音乐家贝多芬出生于哪国？': '德国',
     '在Linkedin上求内推如何作死': '这些都会作死',
     '在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
 };
