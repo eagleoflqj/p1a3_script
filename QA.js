@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      63
+// @version      64
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -67,6 +67,7 @@ QA = {
         'Boston College',
         'MIT',
     ],
+    '下列哪一项首府与州的对应关系是正确的？': '俄克拉何马州 - 俄克拉何马城',
     '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
     '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
     '下面哪种行为，在地里会被扣光积分，甚至封号？': '这些全都会',
