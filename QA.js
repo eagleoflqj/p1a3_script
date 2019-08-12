@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      62
+// @version      63
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -22,6 +22,7 @@ QA = {
     '加州大学有多个分校，下面哪个成立时间最短？': 'UC Merced',
     '论坛鼓励如何发面经？': '以上都正确',
     '美国哪个州具有地中海气候？': '加利福尼亚',
+    '美国哪个州没有夏令时？': '亚利桑那州',
     '哪种选校策略最合理？': '根据自己下一步职业和学业目标，参考地里数据和成功率，认真斟酌',
     '求内推如何作死？': '这些都会作死',
     '下面几个州，哪个离美国首都最远？': 'North Carolina',
