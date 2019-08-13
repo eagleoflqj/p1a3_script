@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.6.7
+// @version      0.7.0
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
-// @grant        none
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_deleteValue
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @require      https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/QA.js
@@ -28,6 +30,12 @@
             check(retryTimes);
         });
     };
+    (() => {
+        const search_ids = ['planyr', 'planterm', 'planmajor', 'plandegree', 'planfin', 'result', 'country']; // 过滤下拉菜单id
+        const replaceCookie = (c) => jq.cookie(c) && (GM_setValue(c, jq.cookie(c)) || 1) && jq.removeCookie(c); // 替换cookie为本地存储
+        replaceCookie('searchoption');
+        search_ids.forEach(replaceCookie);
+    })();
     // 针对不同页面的操作
     const url = window.location.href;
     if (url === 'https://www.1point3acres.com/bbs/' || url.search('forum.php') > 0) { // 可签到、答题的页面
@@ -90,27 +98,24 @@
         // 按上次的筛选条件过滤录取结果
         const search_ids = ['planyr', 'planterm', 'planmajor', 'plandegree', 'planfin', 'result', 'country']; // 过滤下拉菜单id
         const search_button = jq('#searhsort > div.ptm.cl > button'); // 搜索按钮
-        if (jq.cookie('searchoption')) { // 上次过滤了
-            search_ids.forEach(id => jq('#' + id).val(jq.cookie(id)));// 自动填充下拉菜单
+        if (GM_getValue('searchoption')) { // 上次过滤了
+            search_ids.forEach(id => jq('#' + id).val(GM_getValue(id)));// 自动填充下拉菜单
             if (url.search('filter') < 0) { // 当前页面没有过滤
                 search_button.click(); // 自动过滤
                 return;
             }
         }
-        const expire = { expires: 365 }; // cookie有效期
         search_button.click(() => { // 如果不全是默认值，记下当前选项
-            search_ids.some(id => jq('#' + id).val() !== '0') && jq.cookie('searchoption', 1, expire);
-            if (jq.cookie('searchoption')) {
-                search_ids.forEach(id => jq.cookie(id, jq('#' + id).val(), expire));
-            }
+            search_ids.some(id => jq('#' + id).val() !== '0') && GM_setValue('searchoption', 1);
+            GM_getValue('searchoption') && search_ids.forEach(id => GM_setValue(id, jq('#' + id).val()));
         });
         // 添加重置按钮
         const reset_button = jq('<button type="button" class="pn pnc"><em>重置</em></button>');
-        reset_button.click(() => { // 重置、清cookie
-            jq.removeCookie('searchoption');
+        reset_button.click(() => { // 重置、清存储
+            GM_deleteValue('searchoption');
             search_ids.forEach(id => {
                 jq('#' + id).val('0');
-                jq.removeCookie(id);
+                GM_deleteValue(id);
             });
         });
         search_button.after(reset_button);
