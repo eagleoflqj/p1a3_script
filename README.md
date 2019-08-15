@@ -40,3 +40,7 @@
 652122176  
 暗号：一亩三分地  
 欢迎技术爱好者加群交流，或对脚本提出意见
+# 致谢
+## 开源项目
+* [jQuery](https://jquery.com/)
+* [DreamUI](https://dreamui.applinzi.com/)
