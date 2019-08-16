@@ -16,7 +16,7 @@
 // @require      https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/QA.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.min.js
-// @resource     dreamui https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.min.css
+// @resource     dreamui https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.css
 // @resource     setting https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/setting.html
 // ==/UserScript==
 
