@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      65
+// @version      67
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -57,6 +57,7 @@ QA = {
     '下面哪个州，有state income tax on wages': [
         'North Dakota',
     ],
+    '下面哪个州不属于西海岸三州？': '内华达',
     '下面哪个州冬天最暖和？': 'Oklahoma',
     '下面哪个州里有Disney World？': 'Florida',
     '下面哪个州在美国西海岸': 'Washington',
