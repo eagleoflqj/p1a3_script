@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      67
+// @version      68
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -55,6 +55,7 @@ QA = {
         'North Dakota',
     ],
     '下面哪个州，有state income tax on wages': [
+        'Mississippi',
         'North Dakota',
     ],
     '下面哪个州不属于西海岸三州？': '内华达',

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.0
+// @version      0.8.2
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -101,7 +101,7 @@
         !sign && dayquestion && dayquestion.onclick && (dayquestion.onclick() || 1) &&
             (async () => {
                 const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
-                const question = fwin_pop.find('font:contains(【题目】)').text().slice(5);
+                const question = fwin_pop.find('font:contains(【题目】)').text().slice(5).trim();
                 const prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
                 const answer = QA[question];
                 if (!answer) { // 题库不含此题
@@ -137,7 +137,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '新特性：设置功能上线，隐藏你不想看到的模块，快点击油猴图标看看吧！',
+                    content: '修复了题目尾部空格bug',
                     autoClose: 8000
                 });
         })();
