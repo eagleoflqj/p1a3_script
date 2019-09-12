@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      68
+// @version      72
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -30,11 +30,13 @@ QA = {
     '下面加州哪个地点离墨西哥最近？': '圣迭戈',
     '下面哪部作品是喜剧？': '仲夏夜之梦',
     '下面哪个Ivy League，离东海岸最远？': 'Cornell',
+    '下面哪个machine learning的模型不是supervised learning？': 'Clustering',
     '下面哪个城市不是典型的温带海洋性气候？': '波士顿',
     '下面哪个城市没有SUNY（纽约州立大学）校区？': 'Fulton',
     '下面哪个大学不在Virginia/DC附近': 'Washington and Jefferson College',
     '下面哪个大学实际上不存在？': 'University of Michigan, Twin City',
     '下面哪个公司的streaming service不是会员subscription付费模式运营的？': 'Tubi',
+    '下面哪个公司的主要收入不是来自广告？': 'Apple',
     '下面哪个公司总部在圣地亚哥？': 'Qualcomm',
     '下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！',
     '下面哪个说法错误？': [
@@ -70,6 +72,7 @@ QA = {
         'Boston College',
         'MIT',
     ],
+    '下面哪所纽约高校的主校区坐落于中央公园附近？': 'Columbia University',
     '下列哪一项首府与州的对应关系是正确的？': '俄克拉何马州 - 俄克拉何马城',
     '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
     '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
@@ -82,6 +85,7 @@ QA = {
     '一亩三分地是谁创立的？': 'Warald',
     '以下哪个美国城市不靠海？': '亚特兰大',
     '以下哪个说法正确？': '一篇一作指的是有一篇第一作者的文章',
+    '以下哪所学校不位于南部？': '凯斯西储大学',
     '以下哪所学校是美国第一所研究型大学？': '约翰霍普金斯大学',
     '音乐家贝多芬出生于哪国？': '德国',
     '在Linkedin上求内推如何作死': '这些都会作死',
