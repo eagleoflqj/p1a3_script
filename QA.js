@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      72
+// @version      74
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -35,8 +35,10 @@ QA = {
     '下面哪个城市没有SUNY（纽约州立大学）校区？': 'Fulton',
     '下面哪个大学不在Virginia/DC附近': 'Washington and Jefferson College',
     '下面哪个大学实际上不存在？': 'University of Michigan, Twin City',
+    '下面哪个大学在华盛顿州？': 'University of Washington',
     '下面哪个公司的streaming service不是会员subscription付费模式运营的？': 'Tubi',
     '下面哪个公司的主要收入不是来自广告？': 'Apple',
+    '下面哪个公司总部不在湾区？': 'snapchat',
     '下面哪个公司总部在圣地亚哥？': 'Qualcomm',
     '下面哪个情况，不会消耗你的积分？': '看到干货帖子和精华回复，给作者加分！',
     '下面哪个说法错误？': [
