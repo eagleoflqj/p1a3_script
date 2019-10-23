@@ -9,6 +9,7 @@
 
 QA = {
     'Apollo 11是哪一年登月的？': '1969',
+    'Miami University在哪个城市': 'Oxford, Ohio',
     'Miami University在哪个城市?': 'Oxford, Ohio',
     'Negotiate 工资的时候，哪种做法有利于得到更大的包裹？': '精读地里谈工资宝典，知己知彼，百战不殆',
     'Which company is the largest single-site employer in the US?': 'Disney World',
