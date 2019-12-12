@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.3
+// @version      0.8.4
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -75,7 +75,7 @@
     if (url === 'https://www.1point3acres.com/bbs/' || url.search('forum.php') > 0) { // 可签到、答题的页面
         // 自动签到
         const sign = jq('.wp a:contains("签到领奖")')[0];
-        sign && sign.onclick && (sign.onclick() || 1) &&
+        sign && sign.onclick && (sign.click() || 1) &&
             (async () => { // 点击签到领奖
                 const qiandao = await waitUntilElementLoaded('#qiandao');
                 if (!qiandao.length) {
@@ -91,7 +91,7 @@
             })(); // 保证签到对话框加载
         // 签到后自动答题
         const dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
-        !sign && dayquestion && dayquestion.onclick && (dayquestion.onclick() || 1) &&
+        !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
             (async () => {
                 const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
                 const question = fwin_pop.find('font:contains(【题目】)').text().slice(5).trim();
@@ -130,7 +130,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '修复了题目尾部空格bug',
+                    content: '删除cookie相关内容，支持firefox',
                     autoClose: 8000
                 });
         })();
