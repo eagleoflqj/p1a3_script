@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.2
+// @version      0.8.3
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -13,7 +13,6 @@
 // @grant        GM_getResourceText
 // @grant        GM_info
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
-// @require      https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/QA.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.min.js
 // @resource     dreamui https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.css
@@ -37,12 +36,6 @@
             check(retryTimes);
         });
     };
-    (() => {
-        const search_ids = ['planyr', 'planterm', 'planmajor', 'plandegree', 'planfin', 'result', 'country']; // 过滤下拉菜单id
-        const replaceCookie = (c) => jq.cookie(c) && (GM_setValue(c, jq.cookie(c)) || 1) && jq.removeCookie(c); // 替换cookie为本地存储
-        replaceCookie('searchoption');
-        search_ids.forEach(replaceCookie);
-    })();
     // 为本地存储添加命名空间
     const getValue = (namespace, name) => GM_getValue(namespace + '::' + name);
     const setValue = (namespace, name, value) => GM_setValue(namespace + '::' + name, value);
