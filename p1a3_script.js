@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.4
+// @version      0.8.5
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -72,7 +72,7 @@
     hide();
     // 针对不同页面的操作
     const url = window.location.href;
-    if (url === 'https://www.1point3acres.com/bbs/' || url.search('forum.php') > 0) { // 可签到、答题的页面
+    if (url.search(/https:\/\/www.1point3acres.com\/bbs\/((forum|thread|tag).*)?$/) == 0) { // 可签到、答题的页面
         // 自动签到
         const sign = jq('.wp a:contains("签到领奖")')[0];
         sign && sign.onclick && (sign.click() || 1) &&
@@ -130,7 +130,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '删除cookie相关内容，支持firefox',
+                    content: '扩大签到答题页面范围',
                     autoClose: 8000
                 });
         })();
