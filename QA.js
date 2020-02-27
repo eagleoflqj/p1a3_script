@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      74
+// @version      75
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -86,6 +86,7 @@ QA = {
     '一亩三分地鼓励如何发面经？': '以上都正确',
     '一亩三分地是哪年创立的？': '2009',
     '一亩三分地是谁创立的？': 'Warald',
+    '以下哪个不是Linux操作系统？': 'Vue',
     '以下哪个美国城市不靠海？': '亚特兰大',
     '以下哪个说法正确？': '一篇一作指的是有一篇第一作者的文章',
     '以下哪所学校不位于南部？': '凯斯西储大学',
