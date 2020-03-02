@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      75
+// @version      76
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -76,6 +76,7 @@ QA = {
         'MIT',
     ],
     '下面哪所纽约高校的主校区坐落于中央公园附近？': 'Columbia University',
+    '以下哪一位名人不是英国人？': 'Louis Pasteur(他发现了巴斯德高温消毒法)',
     '下列哪一项首府与州的对应关系是正确的？': '俄克拉何马州 - 俄克拉何马城',
     '下面哪种方法，可以妥妥拿到积分？': '这些全都可以',
     '下面哪种情况，管理员会按照你的要求，进行删帖？': '这些情况全都不删帖！',
