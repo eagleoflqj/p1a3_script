@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.5
+// @version      0.8.6
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -42,6 +42,8 @@
     const deleteValue = (namespace, name) => GM_deleteValue(namespace + '::' + name);
     // 可隐藏的模块
     const hideData = [
+        { value: '#toptb', text: "开通VIP" },
+        { value: '#scbar', text: "搜索栏" },
         { value: '.mn > div.fl.bm:nth-child(1)', text: "小喇叭" },
         { value: '#portal_block_76', text: "水车排行" },
         { value: '#frameLXyXrm', text: "4x3" },
@@ -130,7 +132,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '扩大签到答题页面范围',
+                    content: '新增主页可隐藏模块：开通VIP、搜索栏',
                     autoClose: 8000
                 });
         })();
