@@ -99,5 +99,5 @@ QA = {
     '在Linkedin上求内推如何作死': '这些都会作死',
     '在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
     '以下哪种不是Mods of dataflow?': 'tcp/ip',
-    '以下哪种不是 Modes of dataflow?': 'tcp/ip',
+    '以下哪种不是Modes of dataflow?': 'tcp/ip',
 };
