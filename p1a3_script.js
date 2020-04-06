@@ -74,7 +74,7 @@
     hide();
     // 针对不同页面的操作
     const url = window.location.href;
-    if (url.search(/https:\/\/www.1point3acres.com\/bbs\/((forum|thread|tag).*)?$/) == 0) { // 可签到、答题的页面
+    if (url.search(/https:\/\/www\.1point3acres\.com\/bbs\/((forum|thread|tag).*)?$/) == 0) { // 可签到、答题的页面
         // 自动签到
         const sign = jq('.wp a:contains("签到领奖")')[0];
         sign && sign.onclick && (sign.click() || 1) &&
@@ -121,8 +121,7 @@
                 }
                 option_list[0].onclick();
                 jq('#seccodeverify_SA00')[0].focus();
-                const button = fwin_pop.find('button')[0];
-                // button.click(); // 提交答案
+                // fwin_pop.find('button')[0].click(); // 提交答案
                 console.log(question + '\n答案为：' + answer);
             })(); // 保证答题对话框加载
         // 新特性通知，不干扰签到、答题
