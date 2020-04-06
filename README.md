@@ -1,4 +1,7 @@
 # p1a3_script
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/eagleoflqj/p1a3_script.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/eagleoflqj/p1a3_script/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/eagleoflqj/p1a3_script.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/eagleoflqj/p1a3_script/context:javascript)
+  
 一亩三分地的油猴脚本
 # 安装
 ## 自动（推荐）
@@ -13,13 +16,15 @@
 * 所以为了将Github自动同步到GF，我在更新题库、更新题库版本号之后，还需要更新业务逻辑的引用URL和业务逻辑版本号（为什么不是一次commit更新这4项，因为version参数是GF生成的，必须先更新题库才能获得）
 * 模块化是原则，DRY也是原则，GF不是原则；三者冲突时，舍弃GF
 
-我仍会不时手动更新GF，但时间无法保证
+Greasy Fork已停更，请删除并切换为自动安装
 # 更新
 为保证用户体验请及时更新
 ## 自动
-若自动安装，则可点击油猴图标->用户脚本检查更新
+若自动安装，则可点击油猴图标->用户脚本检查更新，或油猴图标->管理面板，点击最后更新列中脚本的时间
 ## 手动
 同手动安装
+## Greasy Fork
+卸载
 # 功能
 ## 论坛
 ### 自动签到
