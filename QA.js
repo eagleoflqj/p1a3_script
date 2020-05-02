@@ -53,6 +53,7 @@ QA = {
     '下面哪个州，没有state income tax?': [
         'Alaska',
         'Florida',
+        'New Hampshire',
     ],
     '下面哪个州，有state income tax': [
         'Mississippi',
