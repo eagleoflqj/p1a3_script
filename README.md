@@ -8,7 +8,7 @@
 请确保浏览器安装了 Tampermonkey/Greasemonkey
 
 ## 自动（推荐）
-[安装地址](https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/p1a3_script.user.js)，点击安装
+[安装地址](https://raw.githubusercontent.com/charlieupupup/p1a3_script/auto-import/p1a3_script.user.js)，点击安装
 ## 手动（不推荐）
 点击油猴图标->添加新脚本，粘贴p1a3_script.js的源码，Ctrl+S
 ## Greasy Fork（不推荐）
