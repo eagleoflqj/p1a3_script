@@ -4,6 +4,9 @@
   
 一亩三分地的油猴脚本
 # 安装
+
+请确保浏览器安装了 Tampermonkey/Greasemonkey
+
 ## 自动（推荐）
 [安装地址](https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/p1a3_script.user.js)，点击安装
 ## 手动（不推荐）
