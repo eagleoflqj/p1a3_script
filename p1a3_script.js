@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.7
+// @version      0.8.8
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -74,28 +74,10 @@
     hide();
     // 针对不同页面的操作
     const url = window.location.href;
-    if (url.search(/https:\/\/www\.1point3acres\.com\/bbs\/((forum|thread|tag).*)?$/) == 0) { // 可签到、答题的页面
+    if (url.search(/https:\/\/www\.1point3acres\.com\/bbs\/((forum|thread|tag|plugin.php\?id=dsu_paulsign:sign).*)?$/) == 0) { // 可签到、答题的页面
         // 自动签到
         const sign = jq('.wp a:contains("签到领奖")')[0];
-        sign && sign.onclick && (sign.click() || 1) &&
-            (async () => { // 点击签到领奖
-                const qiandao = await waitUntilElementLoaded('#qiandao');
-                if (!qiandao.length) {
-                    return;
-                }
-                const faces = qiandao.find('.qdsmilea>li'); // 所有表情
-                const selected_face = faces[Math.floor(Math.random() * faces.length)]; // 随机选择表情
-                selected_face.onclick();
-                const todaysay = qiandao.find('#todaysay'); // 文字框
-                todaysay.val('今天把论坛帖子介绍给好基友了~'); // 快速签到的第一句
-                const captcha_input = jq('#seccodeverify_SA00')[0];
-                if (captcha_input) {
-                    captcha_input.focus();
-                } else {
-                    const button = qiandao.find('button')[0];
-                    button.onclick();
-                }
-            })(); // 保证签到对话框加载
+        sign && sign.click(); // 点击签到领奖
         // 签到后自动答题
         const dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
         !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
@@ -136,10 +118,24 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '自动点击签到验证码输入框',
+                    content: '适应20200617新签到页面',
                     autoClose: 8000
                 });
         })();
+    }
+    if (url === 'https://www.1point3acres.com/bbs/dsu_paulsign-sign.html') {
+        const faces = jq('.qdsmile>li'); // 所有表情
+        const selected_face = faces[Math.floor(Math.random() * faces.length)]; // 随机选择表情
+        selected_face.onclick();
+        const todaysay = jq('#todaysay'); // 文字框
+        todaysay.val('今天把论坛帖子介绍给好基友了~'); // 快速签到的第一句
+        const captcha_input = jq('#seccodeverify_S00')[0];
+        if (captcha_input) {
+            captcha_input.focus();
+        } else {
+            const button = qiandao.find('button')[0];
+            button.onclick();
+        }
     }
     if (url.search('thread') > 0) { // 详情页
         // 自动查看学校、三维
