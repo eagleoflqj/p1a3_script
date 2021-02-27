@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.8
+// @version      0.8.9
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -43,9 +43,8 @@
     // 可隐藏的模块
     const hideData = [
         { value: '#toptb', text: "开通VIP" },
-        { value: '#scbar', text: "搜索栏" },
         { value: '.mn > div.fl.bm:nth-child(1)', text: "小喇叭" },
-        { value: '#portal_block_76', text: "水车排行" },
+        { value: '#portal_block_76 > div', text: "水车排行" },
         { value: '#frameLXyXrm', text: "4x3" },
     ];
     const hideList = hideData.map(e => e.value); // 可隐藏的模块选择器列表
@@ -76,10 +75,10 @@
     const url = window.location.href;
     if (url.search(/https:\/\/www\.1point3acres\.com\/bbs\/((forum|thread|tag|plugin.php\?id=dsu_paulsign:sign).*)?$/) == 0) { // 可签到、答题的页面
         // 自动签到
-        const sign = jq('.wp a:contains("签到领奖")')[0];
+        const sign = jq('div.flex > a:contains("签到领奖")')[0];
         sign && sign.click(); // 点击签到领奖
         // 签到后自动答题
-        const dayquestion = jq('#um img[src*=ahome_dayquestion]').parent()[0];
+        const dayquestion = jq('#ahome_question_icon').parent()[0];
         !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
             (async () => {
                 const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
@@ -118,7 +117,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '适应20200617新签到页面',
+                    content: '适应20210225新论坛首页',
                     autoClose: 8000
                 });
         })();
