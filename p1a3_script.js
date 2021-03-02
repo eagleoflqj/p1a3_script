@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.9
+// @version      0.8.10
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -78,7 +78,7 @@
         const sign = jq('div.flex > a:contains("签到领奖")')[0];
         sign && sign.click(); // 点击签到领奖
         // 签到后自动答题
-        const dayquestion = jq('#ahome_question_icon').parent()[0];
+        const dayquestion = jq('#ahome_question_icon').parent()[0] || jq('a > img[src="source/plugin/ahome_dayquestion/images/ing.gif"]').parent()[0];
         !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
             (async () => {
                 const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
@@ -117,7 +117,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '适应20210225新论坛首页',
+                    content: '识别开始答题+答题中两种按钮',
                     autoClose: 8000
                 });
         })();
