@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.11
+// @version      0.8.12
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -42,13 +42,13 @@
     const deleteValue = (namespace, name) => GM_deleteValue(namespace + '::' + name);
     // 可隐藏的模块
     const hideData = [
-        { value: '#toptb', text: "开通VIP" },
-        { value: '.mn > div.fl.bm:nth-child(1)', text: "小喇叭" },
         { value: '#portal_block_76 > div', text: "水车排行" },
         { value: '#frameLXyXrm', text: "4x3" },
         { value: '#portal_block_421_content', text: "指尖新闻" },
-        { value: '#portal_block_422_content', text: "交友用户" },
-        { value: '#portal_block_424_content', text: "Learn" },
+        { value: '#portal_block_444_content', text: "生活攻略" },
+        { value: '#portal_block_449_content', text: "疫情动态" },
+        { value: '#portal_block_499_content', text: "绿卡排期" },
+        { value: '#portal_block_424_content', text: "精品网课" },
     ];
     const hideList = hideData.map(e => e.value); // 可隐藏的模块选择器列表
     const hide = () => hideList.forEach(selector => jq(selector).css('display', getValue('hide', selector) ? 'none' : 'block')); // 按本地存储隐藏模块
@@ -81,7 +81,7 @@
         const sign = jq('div.flex > a:contains("签到领奖")')[0];
         sign && sign.click(); // 点击签到领奖
         // 签到后自动答题
-        const dayquestion = jq('#ahome_question_icon').parent()[0] || jq('a > img[src="source/plugin/ahome_dayquestion/images/ing.gif"]').parent()[0];
+        const dayquestion = jq('#ahome_question')[0];
         !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
             (async () => {
                 const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
@@ -120,7 +120,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '新增隐藏模块指尖新闻、交友用户、Learn',
+                    content: '适应20210406论坛首页改版',
                     autoClose: 8000
                 });
         })();
