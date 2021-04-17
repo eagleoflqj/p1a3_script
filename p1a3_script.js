@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.12
+// @version      0.8.13
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -80,12 +80,16 @@
         // 自动签到
         const sign = jq('div.flex > a:contains("签到领奖")')[0];
         sign && sign.click(); // 点击签到领奖
+        if (url === 'https://www.1point3acres.com/bbs/plugin.php?id=dsu_paulsign:sign&operation=qiandao&infloat=0&inajax=0') { // 签到成功跳转页
+            return;
+        }
         // 签到后自动答题
-        const dayquestion = jq('#ahome_question')[0];
+        const dayquestion = jq('#ahome_question')[0] || jq('a.text-xs:contains(答题中)')[0];
         !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
             (async () => {
-                const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
-                const question = fwin_pop.find('font:contains(【题目】)').text().slice(5).trim();
+                const fwin_content_pop = await waitUntilElementLoaded('#fwin_content_pop');
+                fwin_content_pop[0].scrollIntoView(false); // 向下滚动
+                const question = fwin_content_pop.find('font:contains(【题目】)').text().slice(5).trim();
                 const prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
                 const answer = QA[question];
                 if (!answer) { // 题库不含此题
@@ -96,7 +100,7 @@
                 const option_list = [];
                 const answer_list = typeof answer === 'string' ? [answer] : answer;
                 // 答案和选项取交集
-                fwin_pop.find('.qs_option').toArray()
+                fwin_content_pop.find('.qs_option').toArray()
                     .forEach(option => answer_list
                         .filter(answer => option.textContent.trim() === answer)
                         .forEach(() => option_list.push(option)));
@@ -110,7 +114,7 @@
                 }
                 option_list[0].onclick();
                 jq('#seccodeverify_SA00')[0].focus();
-                // fwin_pop.find('button')[0].click(); // 提交答案
+                // fwin_content_pop.find('button')[0].click(); // 提交答案
                 console.log(question + '\n答案为：' + answer);
             })(); // 保证答题对话框加载
         // 新特性通知，不干扰签到、答题
@@ -120,7 +124,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '适应20210406论坛首页改版',
+                    content: '修复GitHub issue #72',
                     autoClose: 8000
                 });
         })();
