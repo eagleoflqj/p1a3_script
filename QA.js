@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      89
+// @version      90
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -107,4 +107,5 @@ QA = {
     '在Linkedin上求内推如何作死': '这些都会作死',
     '在论坛发slack群，qq群，微信群，任何站外讨论方式，会如何？': '以上都正确',
     '在一亩三分地论坛参与社区讨论需要遵守哪些规则？': '这些全都要遵守',
+    '参与讨论时需要遵守哪些规则？': '这些全都要遵守',
 };
