@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      85
+// @version      88
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -12,6 +12,7 @@ QA = {
     'Miami University在哪个城市': 'Oxford, Ohio',
     'Miami University在哪个城市?': 'Oxford, Ohio',
     'Negotiate 工资的时候，哪种做法有利于得到更大的包裹？': '精读地里谈工资宝典，知己知彼，百战不殆',
+    'Speak for yourself 是什么意思': '请你不要代表其他人讲话，“那是你自己的看法，我可不这样想”',
     'Which company is the largest single-site employer in the US?': 'Disney World',
     'which state is University of Miami located?': 'Florida',
     '地里发帖可以隐藏内容。假如要设置200积分以上才可以看到，下面哪个语法正确？': '[hide=200]想要隐藏的内容[/hide]',
