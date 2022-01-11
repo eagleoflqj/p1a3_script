@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      152
+// @version      153
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -177,4 +177,5 @@ QA = {
     '在一亩三分地发帖，需要遵守哪些规则？': '以上都需要遵守。',
     '在一亩三分地论坛参与社区讨论需要遵守哪些规则？': '这些全都要遵守',
     '把一亩三分地介绍给朋友的正确姿势不包括什么？':'直接把我的账号密码给朋友用',
+    '如果被引战，钓鱼，人身攻击，该怎么办？':'举报',
 };
