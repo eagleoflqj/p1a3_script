@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      156
+// @version      157
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -180,5 +180,6 @@ QA = {
     '在一亩三分地发帖，不需要遵守哪些规则？': '世界唯一正确的道德评判标准',
     '在一亩三分地发帖，需要遵守哪些规则？': '以上都需要遵守。',
     '在一亩三分地论坛参与社区讨论需要遵守哪些规则？': '这些全都要遵守',
-    '把一亩三分地介绍给朋友的正确姿势不包括什么？':'直接把我的账号密码给朋友用',
+    '把一亩三分地介绍给朋友的正确姿势不包括什么？': '直接把我的账号密码给朋友用',
+    'Disagree agreeably 是什么意思？': '这些都包括。',
 };
