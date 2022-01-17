@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      157
+// @version      158
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -182,4 +182,5 @@ QA = {
     '在一亩三分地论坛参与社区讨论需要遵守哪些规则？': '这些全都要遵守',
     '把一亩三分地介绍给朋友的正确姿势不包括什么？': '直接把我的账号密码给朋友用',
     'Disagree agreeably 是什么意思？': '这些都包括。',
+    '哪些方法可以保护你的账号？': '这些方法都会有帮助。',
 };
