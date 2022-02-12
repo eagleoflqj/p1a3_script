@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      158
+// @version      159
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
@@ -187,4 +187,5 @@ QA = {
     'Disagree agreeably 是什么意思？': '这些都包括。',
     '哪些方法可以保护你的账号？': '这些方法都会有帮助。',
     '如何给论坛提建议？': '可以在论坛的"联系我们”页面，给论坛提出建议。',
+    '如果希望发帖讨论和室友/邻居的关系，应该发在哪个版？': '人际',
 };
