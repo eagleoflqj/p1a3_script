@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.8.14
+// @version      0.9.0
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -12,7 +12,7 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_getResourceText
 // @grant        GM_info
-// @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
+// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/QA.js
 // @require      https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.min.js
 // @resource     dreamui https://raw.githubusercontent.com/eagleoflqj/p1a3_script/master/dream-ui.css
@@ -23,19 +23,6 @@
     'use strict';
 
     const jq = jQuery.noConflict();
-    const waitUntilElementLoaded = function (element, retryTimes = 20) { // 异步等待元素出现并返回
-        return new Promise((resolve, reject) => {
-            const check = (ttl) => {
-                const e = jq(element);
-                if (!e.length && ttl) { // 未加载且未超时
-                    setTimeout(check, 1000, ttl - 1);
-                } else {
-                    resolve(e); // 已加载或超时，返回jQuery对象
-                }
-            };
-            check(retryTimes);
-        });
-    };
     // 为本地存储添加命名空间
     const getValue = (namespace, name) => GM_getValue(namespace + '::' + name);
     const setValue = (namespace, name, value) => GM_setValue(namespace + '::' + name, value);
@@ -85,38 +72,7 @@
         }
         // 签到后自动答题
         const dayquestion = jq('#ahome_question')[0] || jq('a.text-xs:contains(答题中)')[0];
-        !sign && dayquestion && dayquestion.onclick && (dayquestion.click() || 1) &&
-            (async () => {
-                const fwin_pop = await waitUntilElementLoaded('#fwin_pop form');
-                jq('#fwin_content_pop')[0].scrollIntoView(false); // 向下滚动
-                const question = fwin_pop.find('font:contains(【题目】)').text().slice(5).trim();
-                const prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
-                const answer = QA[question];
-                if (!answer) { // 题库不含此题
-                    console.log(prompt);
-                    return;
-                }
-                // 自动回答
-                const option_list = [];
-                const answer_list = typeof answer === 'string' ? [answer] : answer;
-                // 答案和选项取交集
-                fwin_pop.find('.qs_option').toArray()
-                    .forEach(option => answer_list
-                        .filter(answer => option.textContent.trim() === answer)
-                        .forEach(() => option_list.push(option)));
-                if (!option_list.length) {
-                    console.log(prompt);
-                    return;
-                }
-                if (option_list.length > 1) {
-                    alert('[Warning] 多个选项与题库答案匹配');
-                    return;
-                }
-                option_list[0].onclick();
-                jq('#seccodeverify_SA00')[0].focus();
-                // fwin_pop.find('button')[0].click(); // 提交答案
-                console.log(question + '\n答案为：' + answer);
-            })(); // 保证答题对话框加载
+        !sign && dayquestion && dayquestion.onclick && dayquestion.click()
         // 新特性通知，不干扰签到、答题
         !sign && !(dayquestion && dayquestion.onclick) && (() => {
             const currentVersion = GM_info.script.version;
@@ -124,7 +80,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '修复前版引入的bug',
+                    content: '修复jQuery CDN；适配答题页面',
                     autoClose: 8000
                 });
         })();
@@ -142,6 +98,36 @@
             const button = qiandao.find('button')[0];
             button.onclick();
         }
+    }
+    if (url === 'https://www.1point3acres.com/bbs/ahome_dayquestion-pop.html') {  // 自动答题页
+        const form = jq('#myform')
+        const question = form.find('font:contains(【题目】)').text().slice(5).trim();
+        const prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
+        const answer = QA[question];
+        if (!answer) { // 题库不含此题
+            console.log(prompt);
+            return;
+        }
+        // 自动回答
+        const option_list = [];
+        const answer_list = typeof answer === 'string' ? [answer] : answer;
+        // 答案和选项取交集
+        form.find('.qs_option').toArray()
+            .forEach(option => answer_list
+                     .filter(answer => option.textContent.trim() === answer)
+                     .forEach(() => option_list.push(option)));
+        if (!option_list.length) {
+            console.log(prompt);
+            return;
+        }
+        if (option_list.length > 1) {
+            alert('[Warning] 多个选项与题库答案匹配');
+            return;
+        }
+        option_list[0].onclick();
+        jq('#seccodeverify_SA00')[0].focus();
+        // fwin_pop.find('button')[0].click(); // 提交答案
+        console.log(question + '\n答案为：' + answer);
     }
     if (url.search('thread') > 0) { // 详情页
         // 自动查看学校、三维
