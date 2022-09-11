@@ -72,7 +72,7 @@
         }
         // 签到后自动答题
         const dayquestion = jq('#ahome_question')[0] || jq('a.text-xs:contains(答题中)')[0];
-        !sign && dayquestion && dayquestion.onclick && dayquestion.click()
+        !sign && dayquestion && dayquestion.onclick && dayquestion.click();
         // 新特性通知，不干扰签到、答题
         !sign && !(dayquestion && dayquestion.onclick) && (() => {
             const currentVersion = GM_info.script.version;
@@ -100,7 +100,7 @@
         }
     }
     if (url === 'https://www.1point3acres.com/bbs/ahome_dayquestion-pop.html') {  // 自动答题页
-        const form = jq('#myform')
+        const form = jq('#myform');
         const question = form.find('font:contains(【题目】)').text().slice(5).trim();
         const prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
         const answer = QA[question];
