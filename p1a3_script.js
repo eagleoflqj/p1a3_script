@@ -114,8 +114,8 @@
         // 答案和选项取交集
         form.find('.qs_option').toArray()
             .forEach(option => answer_list
-                     .filter(answer => option.textContent.trim() === answer)
-                     .forEach(() => option_list.push(option)));
+                    .filter(answer => option.textContent.trim() === answer)
+                    .forEach(() => option_list.push(option)));
         if (!option_list.length) {
             console.log(prompt);
             return;
@@ -124,7 +124,12 @@
             alert('[Warning] 多个选项与题库答案匹配');
             return;
         }
+
         option_list[0].onclick();
+        // 修改正确选项背景颜色
+        option_list[0].style.backgroundColor = '#E5F6DF';
+        option_list[0].style.borderRadius = '4px';
+        
         jq('#seccodeverify_SA00')[0].focus();
         // fwin_pop.find('button')[0].click(); // 提交答案
         console.log(question + '\n答案为：' + answer);
