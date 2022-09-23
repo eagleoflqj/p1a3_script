@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.9.0
+// @version      0.9.1
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -80,7 +80,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '修复jQuery CDN；适配答题页面',
+                    content: '答题正确选项添加背景颜色 by Mark Chen',
                     autoClose: 8000
                 });
         })();
@@ -129,7 +129,7 @@
         // 修改正确选项背景颜色
         option_list[0].style.backgroundColor = '#E5F6DF';
         option_list[0].style.borderRadius = '4px';
-        
+
         jq('#seccodeverify_SA00')[0].focus();
         // fwin_pop.find('button')[0].click(); // 提交答案
         console.log(question + '\n答案为：' + answer);
