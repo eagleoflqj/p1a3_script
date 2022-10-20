@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.9.1
+// @version      0.9.2
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/bbs/*
@@ -66,7 +66,7 @@
     if (url.search(/https:\/\/www\.1point3acres\.com\/bbs\/((forum|thread|tag|plugin.php\?id=dsu_paulsign:sign).*)?$/) == 0) { // 可签到、答题的页面
         // 自动签到
         const sign = jq('div.flex > a:contains("签到领奖")')[0];
-        sign && sign.click(); // 点击签到领奖
+        sign && (sign.target = '_blank') && sign.click(); // 点击签到领奖
         if (url === 'https://www.1point3acres.com/bbs/plugin.php?id=dsu_paulsign:sign&operation=qiandao&infloat=0&inajax=0') { // 签到成功跳转页
             return;
         }
@@ -80,7 +80,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '答题正确选项添加背景颜色 by Mark Chen',
+                    content: '开新标签签到',
                     autoClose: 8000
                 });
         })();
