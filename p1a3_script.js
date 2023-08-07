@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.9.2
+// @version      0.10.0
 // @description  方便使用一亩三分地
 // @author       Liumeo
-// @match        https://www.1point3acres.com/bbs/*
+// @match        https://www.1point3acres.com/*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_deleteValue
@@ -80,59 +80,55 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '开新标签签到',
+                    content: '适应20230805签到答题页改版',
                     autoClose: 8000
                 });
         })();
     }
-    if (url === 'https://www.1point3acres.com/bbs/dsu_paulsign-sign.html') {
-        const faces = jq('.qdsmile>li'); // 所有表情
-        const selected_face = faces[Math.floor(Math.random() * faces.length)]; // 随机选择表情
-        selected_face.onclick();
-        const todaysay = jq('#todaysay'); // 文字框
-        todaysay.val('今天把论坛帖子介绍给好基友了~'); // 快速签到的第一句
-        const captcha_input = jq('#seccodeverify_S00')[0];
-        if (captcha_input) {
-            captcha_input.focus();
-        } else {
-            const button = qiandao.find('button')[0];
-            button.onclick();
-        }
+    if (url === 'https://www.1point3acres.com/next/daily-checkin') {
+        const panel = document.querySelector('.col-span-12');
+        setTimeout(() => {
+            panel.querySelector('.grid-cols-5 .rounded-md.border:last-child').click();
+            setInterval(() => panel.querySelector('.text-center > button').click(), 1000);
+        }, 1000);
     }
-    if (url === 'https://www.1point3acres.com/bbs/ahome_dayquestion-pop.html') {  // 自动答题页
-        const form = jq('#myform');
-        const question = form.find('font:contains(【题目】)').text().slice(5).trim();
-        const prompt = '尚未收录此题答案。如果您知道答案，请将\n"\n' + question + '\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues';
-        const answer = QA[question];
-        if (!answer) { // 题库不含此题
-            console.log(prompt);
-            return;
-        }
-        // 自动回答
-        const option_list = [];
-        const answer_list = typeof answer === 'string' ? [answer] : answer;
-        // 答案和选项取交集
-        form.find('.qs_option').toArray()
-            .forEach(option => answer_list
-                    .filter(answer => option.textContent.trim() === answer)
-                    .forEach(() => option_list.push(option)));
-        if (!option_list.length) {
-            console.log(prompt);
-            return;
-        }
-        if (option_list.length > 1) {
-            alert('[Warning] 多个选项与题库答案匹配');
-            return;
-        }
+    if (url === 'https://www.1point3acres.com/next/daily-question') { // 自动答题页
+        const helper = () => {
+            const form = document.querySelector('.col-span-12');
+            const questionElement = form.querySelector('.text-orange-500');
+            if (!questionElement) {
+                setTimeout(helper, 1000);
+                return
+            }
+            const question = questionElement.textContent.slice(4).trim();
+            const answer = QA[question];
+            if (!answer) { // 题库不含此题
+                const prompt = `尚未收录此题答案。如果您知道答案，请将\n"\n${question}\n{您的答案}\n"\n以issue形式提交至https://github.com/eagleoflqj/p1a3_script/issues`;
+                console.log(prompt);
+                return;
+            }
+            // 自动回答
+            const option_list = [];
+            const answer_list = typeof answer === 'string' ? [answer] : answer;
+            // 答案和选项取交集
+            form.querySelectorAll('.mt-4 > div')
+                .forEach(option => answer_list
+                         .filter(answer => option.textContent.trim() === answer)
+                         .forEach(() => option_list.push(option)));
+            if (!option_list.length) {
+                console.log(prompt);
+                return;
+            }
+            if (option_list.length > 1) {
+                alert('[Warning] 多个选项与题库答案匹配');
+                return;
+            }
 
-        option_list[0].onclick();
-        // 修改正确选项背景颜色
-        option_list[0].style.backgroundColor = '#E5F6DF';
-        option_list[0].style.borderRadius = '4px';
-
-        jq('#seccodeverify_SA00')[0].focus();
-        // fwin_pop.find('button')[0].click(); // 提交答案
-        console.log(question + '\n答案为：' + answer);
+            option_list[0].click();
+            setInterval(() => form.querySelector('.text-center > button').click(), 1000);
+            console.log(question + '\n答案为：' + answer);
+        }
+        helper();
     }
     if (url.search('thread') > 0) { // 详情页
         // 自动查看学校、三维
