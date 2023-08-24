@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.10.1
+// @version      0.10.2
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/*
@@ -80,7 +80,7 @@
             getValue('global', 'lastVersion') !== currentVersion && (setValue('global', 'lastVersion', currentVersion) || 1) &&
                 UI.notice.success({
                     title: currentVersion + '更新提示',
-                    content: '取消自动点击按钮',
+                    content: '更新自动答题selector',
                     autoClose: 8000
                 });
         })();
@@ -95,7 +95,7 @@
     if (url === 'https://www.1point3acres.com/next/daily-question') { // 自动答题页
         const helper = () => {
             const form = document.querySelector('.col-span-12');
-            const questionElement = form.querySelector('.text-orange-500');
+            const questionElement = form.querySelector('.text-orange');
             if (!questionElement) {
                 setTimeout(helper, 1000);
                 return
