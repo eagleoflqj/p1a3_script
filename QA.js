@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_qa
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      193
+// @version      194
 // @description  1p3a_script的题库
 // @author       Liumeo
 // @grant        none
