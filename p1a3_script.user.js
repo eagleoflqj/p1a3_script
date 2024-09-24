@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.10.3
+// @version      0.10.4
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/*
@@ -21,8 +21,6 @@
 
 (function () {
     'use strict';
-
-    alert('为了方便安装，本脚本将会停止维护，最新版本请访问 https://github.com/eagleoflqj/p1a3_script');
 
     const jq = jQuery.noConflict();
     // 为本地存储添加命名空间
