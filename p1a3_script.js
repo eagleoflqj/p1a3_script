@@ -94,7 +94,7 @@
     }
     if (url === 'https://www.1point3acres.com/next/daily-question') { // 自动答题页
         const helper = () => {
-            const form = document.querySelector('.col-span-12');
+            const form = document.querySelector('.min-h-\\[40vh\\]');
             const questionElement = form.querySelector('.text-orange');
             if (!questionElement) {
                 setTimeout(helper, 1000);
