@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.10.3
+// @version      0.10.4
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/*
@@ -86,7 +86,7 @@
         })();
     }
     if (url === 'https://www.1point3acres.com/next/daily-checkin') {
-        const panel = document.querySelector('.col-span-12');
+        const panel = document.querySelector('.grid.grid-cols-5');
         setTimeout(() => {
             panel.querySelector('.grid-cols-5 .rounded-md.border:last-child').click();
             // setInterval(() => panel.querySelector('.text-center > button').click(), 1000);
