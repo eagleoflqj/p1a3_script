@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1p3a_script
 // @namespace    https://github.com/eagleoflqj/p1a3_script
-// @version      0.10.4
+// @version      0.10.5
 // @description  方便使用一亩三分地
 // @author       Liumeo
 // @match        https://www.1point3acres.com/*
@@ -111,7 +111,7 @@
             const option_list = [];
             const answer_list = typeof answer === 'string' ? [answer] : answer;
             // 答案和选项取交集
-            form.querySelectorAll('.mt-4 > div')
+            form.querySelectorAll('.mt-4 > button')
                 .forEach(option => answer_list
                          .filter(answer => option.textContent.trim() === answer)
                          .forEach(() => option_list.push(option)));
